@@ -5,7 +5,7 @@ import math
 
 st.title("Andrea Smith | Data App Assignment, on July 14th ")
 
-st.write("### Input Data and Examples")
+st.write("### ASmith Input Data and Examples")
 df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=True)
 st.dataframe(df)
 
