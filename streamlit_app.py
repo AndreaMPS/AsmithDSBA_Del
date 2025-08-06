@@ -14,7 +14,7 @@ selected_category = st.selectbox(
     'Select a Category',
     df['Category'].unique()
 )
-
+st.write("### By: Andrea Smith")
 # Filter the data based on the selected category
 filtered_df = df[df['Category'] == selected_category]
 
