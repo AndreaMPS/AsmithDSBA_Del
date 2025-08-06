@@ -9,10 +9,19 @@ st.write("### Input Data and Examples")
 df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=True)
 st.dataframe(df)
 
-# asmith Create a dropdown for Category
+# Andrea Smith | DSBA | Create a dropdown for Category
 st.selectbox(
     'Select a Category',
     df['Category'].unique()
+)
+
+# Filter the data based on the selected category
+filtered_df = df[df['Category'] == selected_category]
+
+# Create a multi-select for Sub_Category based on the filtered data
+st.multiselect(
+    'Select one or more Sub-Categories',
+    filtered_df['Sub_Category'].unique()
 )
 
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
