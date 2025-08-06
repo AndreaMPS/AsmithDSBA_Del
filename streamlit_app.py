@@ -44,7 +44,7 @@ else:
 # end -----------
 
 # Three metrics for the selected items
-st.write("Summative Metrics: Total Sales, Total Profit, and Overall Profit Margin (%)")
+st.write("Select Categories Above to see Summative Metrics: Total Sales, Total Profit, and Overall Profit Margin (%)")
 if selected_sub_categories:
     # Calculate the total sales, total profit, and overall profit margin
     total_sales = selected_items_df['Sales'].sum()
