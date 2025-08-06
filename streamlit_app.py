@@ -70,7 +70,7 @@ if selected_sub_categories:
     with col2:
         st.metric("Total Profit", f"${total_profit:,.2f}")
     with col3:
-        st.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%")
+        st.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%", f"{profit_margin_delta:.2f}%")
 # end -----------
 
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
