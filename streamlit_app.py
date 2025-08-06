@@ -25,7 +25,7 @@ selected_sub_categories = st.multiselect(
 )
 
 # Line chart of sales for the selected items in sub-cat
-st.write("Line chart of Sales for Selected Products and Sub-Categories")
+st.write("Line chart of Sales for Selected Product by Sub-Category")
 if selected_sub_categories:
     # Filter the dataframe further based on the selected sub-categories
     selected_items_df = filtered_df[filtered_df['Sub_Category'].isin(selected_sub_categories)]
