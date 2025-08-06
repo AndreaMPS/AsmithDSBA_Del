@@ -10,7 +10,7 @@ df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=True)
 st.dataframe(df)
 
 # Andrea Smith | DSBA | Create a dropdown for Category
-st.selectbox(
+selected_category = st.selectbox(
     'Select a Category',
     df['Category'].unique()
 )
@@ -19,7 +19,7 @@ st.selectbox(
 filtered_df = df[df['Category'] == selected_category]
 
 # Create a multi-select for Sub_Category based on the filtered data
-st.multiselect(
+selected_sub_categories = st.multiselect(
     'Select one or more Sub-Categories',
     filtered_df['Sub_Category'].unique()
 )
