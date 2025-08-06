@@ -41,7 +41,31 @@ if selected_sub_categories:
     st.line_chart(sales_by_month_selected, x='Order_Date', y='Sales')
 else:
     st.info("Please select one or more Sub-Categories to see the sales chart.")
-# end
+# end -----------
+
+# Three metrics for the selected items
+st.write("Summative Metrics: Total Sales, Total Profit, and Overall Profit Margin (%)")
+if selected_sub_categories:
+    # Calculate the total sales, total profit, and overall profit margin
+    total_sales = selected_items_df['Sales'].sum()
+    total_profit = selected_items_df['Profit'].sum()
+    
+    # Avoid division by zero
+    if total_sales != 0:
+        overall_profit_margin = (total_profit / total_sales) * 100
+    else:
+        overall_profit_margin = 0
+
+    # Display the metrics in three columns
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.metric("Total Sales", f"${total_sales:,.2f}")
+    with col2:
+        st.metric("Total Profit", f"${total_profit:,.2f}")
+    with col3:
+        st.metric("Overall Profit Margin", f"{overall_profit_margin:.2f}%")
+# end -----------
 
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
