@@ -24,6 +24,25 @@ selected_sub_categories = st.multiselect(
     filtered_df['Sub_Category'].unique()
 )
 
+# Line chart of sales for the selected items in sub-cat
+st.write("### (3) show a line chart of sales for the selected items in (2)")
+if selected_sub_categories:
+    # Filter the dataframe further based on the selected sub-categories
+    selected_items_df = filtered_df[filtered_df['Sub_Category'].isin(selected_sub_categories)]
+    
+    # Ensure Order_Date is in datetime format and set it as an index
+    selected_items_df['Order_Date'] = pd.to_datetime(selected_items_df['Order_Date'])
+    selected_items_df.set_index('Order_Date', inplace=True)
+    
+    # Group by month and sum the sales for the selected items
+    sales_by_month_selected = selected_items_df.groupby(pd.Grouper(freq='M'))['Sales'].sum().reset_index()
+    
+    # Display the line chart
+    st.line_chart(sales_by_month_selected, x='Order_Date', y='Sales')
+else:
+    st.info("Please select one or more Sub-Categories to see the sales chart.")
+# end
+
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
 
