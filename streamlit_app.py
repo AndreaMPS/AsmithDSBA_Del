@@ -56,6 +56,12 @@ if selected_sub_categories:
     else:
         overall_profit_margin = 0
 
+    # Calculate the overall average profit margin across all products
+    overall_average_profit_margin = (df['Profit'].sum() / df['Sales'].sum()) * 100
+
+    # Calculate the delta for the profit margin
+    profit_margin_delta = overall_profit_margin - overall_average_profit_margin
+
     # Display the metrics in three columns
     col1, col2, col3 = st.columns(3)
     
